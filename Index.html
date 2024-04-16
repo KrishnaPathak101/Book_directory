@@ -71,7 +71,7 @@
         // Function to fetch and display books
         async function fetchBooks() {
             try {
-                const response = await axios.get('http://localhost:3000/books');
+                const response = await axios.get('https://book-directory-fo16.onrender.com/books');
                 const books = response.data;
                 
                 const bookList = document.getElementById('bookList');
@@ -101,7 +101,7 @@
                 const author = document.getElementById('author').value;
                 const genre = document.getElementById('genre').value;
 
-                await axios.post('http://localhost:3000/books', { title, author, genre });
+                await axios.post('https://book-directory-fo16.onrender.com/books', { title, author, genre });
                 fetchBooks(); // Refresh the book list after adding a new book
             } catch (error) {
                 console.error('Error adding book:', error);
@@ -111,7 +111,7 @@
         // Function to delete a book
         async function deleteBook(id) {
             try {
-                await axios.delete(`http://localhost:3000/books/${id}`);
+                await axios.delete(`https://book-directory-fo16.onrender.com/books/${id}`);
                 fetchBooks(); // Refresh the book list after deleting a book
             } catch (error) {
                 console.error('Error deleting book:', error);
@@ -125,7 +125,7 @@
                 const author = prompt('Enter new author:');
                 const genre = prompt('Enter new genre:');
 
-                await axios.put(`http://localhost:3000/books/${id}`, { title, author, genre });
+                await axios.put(`https://book-directory-fo16.onrender.com/books/${id}`, { title, author, genre });
                 fetchBooks(); // Refresh the book list after updating a book
             } catch (error) {
                 console.error('Error updating book:', error);
