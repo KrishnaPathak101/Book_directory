@@ -2,6 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const path = require('path');
+
 require('dotenv').config();
 
 
@@ -21,7 +23,10 @@ const bookSchema = new mongoose.Schema({
 const Book = mongoose.model('Book', bookSchema);
 
 app.use(bodyParser.json());
-
+// Serve the index.html file directly
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'Index.html'));
+});
 // GET all books
 app.get('/books', async (req, res) => {
   try {
