@@ -11,7 +11,7 @@ const app = express();
 const PORT = 3000;
 app.use(cors());
 // Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect('mongodb+srv://krishna:krishna@krishna.dmdwaie.mongodb.net/books');
 
 // Define book schema
 const bookSchema = new mongoose.Schema({
